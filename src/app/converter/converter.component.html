@@ -1,4 +1,5 @@
-<div class="columns">
+<div class="container">
+  <div class="columns">
     <div class="column">
         <form class="box">
             <div class="field">
@@ -6,7 +7,7 @@
               <div class="control has-icons-left">
                 <div class="select is-info">
                     <select (change)="calculateEnterRate($event)">
-                      <option *ngFor="let item of listCurrenciesFromServer">
+                      <option *ngFor="let item of currencies">
                         {{item.cc}}
                       </option>
                     </select>
@@ -22,7 +23,8 @@
                 <input
                   class="input"
                   type="number"
-                  value={{give}}
+                  min="1"
+                  [value]="give"
                   (input)="enterInput($event)"
                   placeholder="Введіть кількість"
                 >
@@ -38,7 +40,7 @@
               <div class="control has-icons-left">
                 <div class="select is-info">
                     <select (change)="calculateExitRate($event)">
-                      <option *ngFor="let item of listCurrenciesFromServer">
+                      <option *ngFor="let item of currencies">
                         {{item.cc}}
                       </option>
                     </select>
@@ -52,9 +54,10 @@
               </div>
               <div class="control">
                 <input 
-                  class="input" 
-                  type="number" 
-                  value={{receive}}
+                  class="input"
+                  type="number"
+                  min="1"
+                  [value]="receive"
                   (input)="exitInput($event)"
                   placeholder="Введіть кількість"
                 >
@@ -64,3 +67,4 @@
       
     </div>
   </div>
+</div>

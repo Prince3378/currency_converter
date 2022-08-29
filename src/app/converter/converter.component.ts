@@ -8,7 +8,7 @@ import { CurrencyType } from '../types/currancyType';
 })
 export class ConverterComponent {
   @Input()
-  listCurrenciesFromServer: CurrencyType[] = [];
+  currencies: CurrencyType[] = [];
 
   give = 1;
   receive = 1;
@@ -20,8 +20,10 @@ export class ConverterComponent {
   public flagExit = 'UAH';
 
   enterInput(event: any) {
-    this.give = event.target.value;
-    this.receive = +(event.target.value * (this.giveRate / this.receiveRate)).toFixed(2);
+    if (event.target.value > 0) {
+      this.give = event.target.value;
+      this.receive = +(event.target.value * (this.giveRate / this.receiveRate)).toFixed(2);
+    }
   }
 
   exitInput(event: any) {
@@ -32,7 +34,7 @@ export class ConverterComponent {
   calculateEnterRate(event: any) {
     this.flagEnter = `${event.target.value}`
 
-    this.listCurrenciesFromServer.map(currency => {
+    this.currencies.map(currency => {
       if (event.target.value === currency.cc) {
         this.giveRate = +currency.rate;
         this.receive = +(this.give * (+currency.rate / this.receiveRate)).toFixed(2)
@@ -43,7 +45,7 @@ export class ConverterComponent {
   calculateExitRate(event: any) {
     this.flagExit = `${event.target.value}`
 
-    this.listCurrenciesFromServer.map(currency => {
+    this.currencies.map(currency => {
       if (event.target.value === currency.cc) {
         this.receiveRate = +currency.rate;
         this.receive = +(this.give * (this.giveRate / +currency.rate)).toFixed(2)

@@ -8,6 +8,6 @@ import { CurrencyType } from 'src/app/types/currancyType';
 })
 export class HeaderComponent {
   @Input()
-  listCurrenciesFromServer: CurrencyType[] = [];
+  currencies: CurrencyType[] = [];
 
 }

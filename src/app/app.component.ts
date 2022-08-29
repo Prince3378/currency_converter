@@ -5,21 +5,22 @@ import { ExchangeService } from './services/service.api';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="content is-large is-centered">Конвертер валют</div>
-  <app-header
-  [listCurrenciesFromServer] = "listCurrenciesFromServer"
-  ></app-header>
-  <app-converter
-  [listCurrenciesFromServer] = "listCurrenciesFromServer"
-  ></app-converter>
-  
+
+  <div class="content is-large is-centered">
+    Конвертер валют
+  </div>
+
+  <app-header [currencies] = "currencies"></app-header>
+
+  <app-converter [currencies] = "currencies"></app-converter>
+
   `,
   styles: []
 })
 export class AppComponent {
   title = 'currency_converter';
 
-  listCurrenciesFromServer: CurrencyType[] = [];
+  currencies: CurrencyType[] = [];
 
   constructor(
     private exchangeService: ExchangeService,
@@ -28,7 +29,7 @@ export class AppComponent {
   ngOnInit() {
     this.exchangeService.getExchangeRate()
       .subscribe(data => 
-        this.listCurrenciesFromServer = [
+        this.currencies = [
           {
             rate: "1",
             cc: "UAH",
