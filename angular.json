@@ -107,6 +107,9 @@
           "options": {
             "browserTarget": "currency_converter:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
