@@ -1,0 +1,66 @@
+<div class="columns">
+    <div class="column">
+        <form class="box">
+            <div class="field">
+              <label class="label">Віддаю</label>
+              <div class="control has-icons-left">
+                <div class="select is-info">
+                    <select (change)="calculateEnterRate($event)">
+                      <option *ngFor="let item of listCurrenciesFromServer">
+                        {{item.cc}}
+                      </option>
+                    </select>
+                  </div>
+                  <span class="icon is-left">
+                    <i
+                      class="icon-flag"
+                      [ngClass]="flagEnter"
+                    ></i>
+                  </span>
+              </div>
+              <div class="control">
+                <input
+                  class="input"
+                  type="number"
+                  value={{give}}
+                  (input)="enterInput($event)"
+                  placeholder="Введіть кількість"
+                >
+              </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="column">
+        <form class="box">
+            <div class="field">
+              <label class="label">Отримую</label>
+              <div class="control has-icons-left">
+                <div class="select is-info">
+                    <select (change)="calculateExitRate($event)">
+                      <option *ngFor="let item of listCurrenciesFromServer">
+                        {{item.cc}}
+                      </option>
+                    </select>
+                  </div>
+                  <span class="icon is-left">
+                    <i
+                      class="icon-flag"
+                      [ngClass]="flagExit"
+                    ></i>
+                  </span>
+              </div>
+              <div class="control">
+                <input 
+                  class="input" 
+                  type="number" 
+                  value={{receive}}
+                  (input)="exitInput($event)"
+                  placeholder="Введіть кількість"
+                >
+              </div>
+            </div>
+        </form>
+      
+    </div>
+  </div>

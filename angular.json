@@ -7,8 +7,9 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "inlineTemplate": true,
-          "inlineStyle": true,
+          "inlineTemplate": false,
+          "inlineStyle": false,
+          "style": "scss",
           "skipTests": true
         },
         "@schematics/angular:class": {
@@ -50,7 +51,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/bulma/css/bulma.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -107,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "064417dc-fb24-4480-b30a-14218f83370c"
   }
 }

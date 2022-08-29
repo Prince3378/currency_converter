@@ -1,0 +1,24 @@
+.icon {
+
+    &-flag {
+        width: 34px;
+        height: 24px;
+        background-image: url(https://minfin.com.ua/currency/converter/68a7698693464be9a48f856be4468eea.jpg);
+    }
+}
+
+.USD {
+    background-position: -476px -192px;
+}
+
+.UAH {
+    background-position: -476px -168px;
+}
+
+.EUR {
+    background-position: -136px -288px;
+}
+
+.control {
+    display: inline-block;
+}
